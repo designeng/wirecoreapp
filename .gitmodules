@@ -1,0 +1,9 @@
+[submodule "wire-app/js/lib/wire"]
+	path = wire-app/js/lib/wire
+	url = https://github.com/cujojs/wire.git
+[submodule "wire-app/js/lib/when"]
+	path = wire-app/js/lib/when
+	url = https://github.com/cujojs/when.git
+[submodule "wire-app/js/lib/meld"]
+	path = wire-app/js/lib/meld
+	url = https://github.com/cujojs/meld.git
