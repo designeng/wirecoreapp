@@ -32,6 +32,29 @@ module.exports = (grunt) ->
                     port: port
                     base: '.'
 
+        requirejs:
+            compile:
+                options:
+                    appDir: "wire-app"
+                    baseUrl: "js"
+                    mainConfigFile: "wire-app/js/main.js"
+                    dir: "public"
+
+                    optimize: "none"
+
+                    # how does it work?
+                    done: (done, output) ->
+                        duplicates = require('rjs-build-analysis').duplicates(output)
+
+                        if duplicates.length > 0
+                            grunt.log.subhead('Duplicates found in requirejs build:')
+                            grunt.log.warn(duplicates)
+                            done new Error('r.js built duplicate modules, please check the excludes option.')
+                        else
+                            console.log "No duplicates"
+
+                        done()
+
         # insert:
         #     options: {}
         #     main:
