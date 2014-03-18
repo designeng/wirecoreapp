@@ -26,6 +26,19 @@ module.exports = (grunt) ->
                     ext: '.js'
                 ]
 
+        copy:
+            app:
+                files: [
+                    expand: true
+                    cwd: "wire-app/"
+                    src: ["**"]
+                    dest: "prebuild/"
+                    filter: "isFile"
+                ]
+
+        clean:
+            prebuild: "prebuild"
+
         connect:
             server:
                 options:
@@ -48,22 +61,20 @@ module.exports = (grunt) ->
 
                     modules: [
                         name: "main"
-                        include: ["main"]
-                        # exclude: _.flatten [infrustructureModules, "infrustructure"]
+                        include: ["main", "wire", 'wire/lib/context']
                     ]
 
-                    # how does it work?
-                    done: (done, output) ->
-                        duplicates = require('rjs-build-analysis').duplicates(output)
+                    # done: (done, output) ->
+                    #     duplicates = require('rjs-build-analysis').duplicates(output)
 
-                        if duplicates.length > 0
-                            grunt.log.subhead('Duplicates found in requirejs build:')
-                            grunt.log.warn(duplicates)
-                            done new Error('r.js built duplicate modules, please check the excludes option.')
-                        else
-                            console.log "No duplicates"
+                    #     if duplicates.length > 0
+                    #         grunt.log.subhead('Duplicates found in requirejs build:')
+                    #         grunt.log.warn(duplicates)
+                    #         done new Error('r.js built duplicate modules, please check the excludes option.')
+                    #     else
+                    #         console.log "No duplicates"
 
-                        done()
+                    #     done()
 
         # insert:
         #     options: {}
@@ -76,6 +87,8 @@ module.exports = (grunt) ->
 
     grunt.loadNpmTasks "grunt-contrib-watch"
     grunt.loadNpmTasks "grunt-contrib-coffee"
+    grunt.loadNpmTasks "grunt-contrib-copy"
+    grunt.loadNpmTasks "grunt-contrib-clean"
     grunt.loadNpmTasks "grunt-contrib-connect"
     grunt.loadNpmTasks "grunt-contrib-requirejs"
     grunt.loadNpmTasks "grunt-newer"
@@ -90,4 +103,6 @@ module.exports = (grunt) ->
     grunt.registerTask "server", ["connect"]
     grunt.registerTask "inc", ["insert", "coffee-compile-tests", "default"]
     
-    grunt.registerTask 'build', ['requirejs']
+    grunt.registerTask 'build', ["prebuild", "requirejs", "afterbuild"]
+    grunt.registerTask 'prebuild', ["copy:app"]
+    grunt.registerTask 'afterbuild', ["clean:prebuild"]
