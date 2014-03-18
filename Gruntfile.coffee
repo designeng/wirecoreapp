@@ -41,6 +41,16 @@ module.exports = (grunt) ->
                     dir: "public"
 
                     optimize: "none"
+                    removeCombined: true
+
+                    paths:
+                        "wire/builder/rjs": "lib/builder"
+
+                    modules: [
+                        name: "main"
+                        include: ["main"]
+                        # exclude: _.flatten [infrustructureModules, "infrustructure"]
+                    ]
 
                     # how does it work?
                     done: (done, output) ->
