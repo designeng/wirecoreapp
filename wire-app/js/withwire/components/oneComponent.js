@@ -5,7 +5,7 @@ define([], function() {
       console.log("OPT:", opt);
     }
 
-    One.prototype.init = function(arg) {
+    One.prototype.initialize = function(arg) {
       return console.log("ONE arg", arg);
     };
 

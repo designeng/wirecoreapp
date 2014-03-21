@@ -5,7 +5,7 @@ define [
         constructor: (opt) ->
             console.log "OPT:", opt
 
-        init: (arg) ->
+        initialize: (arg) ->
             console.log "ONE arg", arg
 
         check: (opt) ->
