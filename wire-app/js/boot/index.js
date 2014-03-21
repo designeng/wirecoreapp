@@ -14,7 +14,7 @@ define(["wire!mediator"], function(context) {
       create: "controls/button/buttonControl",
       ready: {
         initialize: {
-          $ref: {
+          args: {
             one: 1,
             two: 2
           }

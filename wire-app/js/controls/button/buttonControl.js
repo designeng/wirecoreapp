@@ -26,7 +26,7 @@ define(["backbone", "marionette"], function(Backbone, Marionette) {
     };
 
     ButtonControl.prototype.testButton = function(str) {
-      return console.log("STR::::", str);
+      return console.log("testButton called ---- ", str);
     };
 
     ButtonControl.prototype.onRender = function() {};

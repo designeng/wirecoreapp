@@ -29,7 +29,7 @@ define [
             @$el.attr "type", "button"
 
         testButton: (str) ->
-            console.log "STR::::", str
+            console.log "testButton called ---- ", str
 
         onRender: -> 
 

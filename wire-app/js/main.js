@@ -37,11 +37,12 @@ require.config({
   ],
   shim: {
     "marionette": {
-      deps: ["backbone"]
+      deps: ["backbone"],
+      exports: "Marionette"
     }
   },
   paths: {
-    "domReady": "../../bower_components/wire/domReady",
+    "domReady": "../../bower_components/domReady/domReady",
     "boot": "boot/index",
     "mediator": "boot/mediator",
     "context/main": "withwire/context/main",
@@ -50,6 +51,6 @@ require.config({
   }
 });
 
-require(["boot"], function(Boot) {
+require(["boot"], function(Marionette, Boot) {
   return console.log("Boot", Boot);
 });

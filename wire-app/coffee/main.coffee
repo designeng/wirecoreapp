@@ -56,6 +56,7 @@ require.config
     shim:
         "marionette":
             deps: ["backbone"]
+            exports: "Marionette"
 
     paths:
         # plugins
@@ -75,7 +76,7 @@ require.config
 
 require [
     "boot"
-], (Boot) ->
+], (Marionette, Boot) ->
 
     console.log "Boot", Boot
 

@@ -1,6 +1,19 @@
 define
+    message: "Start application"
+
     root:
-        $ref: 'dom!application'
+        module:
+            "app"
+        ready:
+            start:
+                arg:
+                    regionSelector: "#application"
+            # show:
+            #     arg: {$ref: "oneComponent"}
+            # show:
+            #     arg:
+            #         TEST: "TEST"
+
 
     arg1: "test1"
     arg2: "test2"
