@@ -1,5 +1,5 @@
 require.config({
-  baseUrl: "/wire-app/js",
+  baseUrl: "/app/js",
   packages: [
     {
       name: "wire",
@@ -43,7 +43,7 @@ require.config({
   },
   paths: {
     "domReady": "../../bower_components/domReady/domReady",
-    "boot": "boot/index",
+    "bootstrapSpec": "core/bootstrapSpec",
     "mediator": "boot/mediator",
     "context/main": "withwire/context/main",
     "withwire": "withwire/withwire",
@@ -51,6 +51,6 @@ require.config({
   }
 });
 
-require(["boot"], function(Marionette, Boot) {
-  return console.log("Boot", Boot);
+require(["wire!bootstrapSpec"], function(bootstrapSpec) {
+  return console.log("bootstrapSpec", bootstrapSpec);
 });

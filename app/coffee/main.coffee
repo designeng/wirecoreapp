@@ -1,6 +1,6 @@
 require.config
 
-    baseUrl: "/wire-app/js"
+    baseUrl: "/app/js"
 
     packages: [
         # lib packages
@@ -43,14 +43,7 @@ require.config
             name: "text"
             main: "text"
             location: "../../bower_components/text"
-        },
-
-        # build test
-        # {
-        #     name: "withwire"
-        #     main: "withwire"
-        #     location: "../../../mocha-tests/js/spec/withwire/withwire"
-        # }       
+        }     
     ]
 
     shim:
@@ -62,8 +55,9 @@ require.config
         # plugins
         "domReady": "../../bower_components/domReady/domReady"
 
-        # bootstrap
-        "boot": "boot/index"
+        # bootstrap spec
+        "bootstrapSpec": "core/bootstrapSpec"
+
         # mediator
         "mediator": "boot/mediator"
 
@@ -75,8 +69,8 @@ require.config
         "oneComponent": "withwire/components/oneComponent"
 
 require [
-    "boot"
-], (Marionette, Boot) ->
+    "wire!bootstrapSpec"
+], (bootstrapSpec) ->
 
-    console.log "Boot", Boot
+    console.log "bootstrapSpec", bootstrapSpec
 

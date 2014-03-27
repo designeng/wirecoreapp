@@ -6,10 +6,10 @@ module.exports = (grunt) ->
     grunt.initConfig
         watch:
             coffee_app:
-                files: ['wire-app/coffee/**/**.coffee']
+                files: ['app/coffee/**/**.coffee']
                 tasks: ["coffee-compile-app"]
             js:
-                files: ['wire-app/js/**/**.js']
+                files: ['app/js/**/**.js']
                 options:
                     livereload: true
 
@@ -20,9 +20,9 @@ module.exports = (grunt) ->
                 }
                 files: [
                     expand: true,
-                    cwd: 'wire-app/coffee',
+                    cwd: 'app/coffee',
                     src: ['**/*.coffee'],
-                    dest: 'wire-app/js',
+                    dest: 'app/js',
                     ext: '.js'
                 ]
 
@@ -30,7 +30,7 @@ module.exports = (grunt) ->
             app:
                 files: [
                     expand: true
-                    cwd: "wire-app/"
+                    cwd: "app/"
                     src: ["**"]
                     dest: "prebuild/"
                     filter: "isFile"
@@ -48,9 +48,9 @@ module.exports = (grunt) ->
         requirejs:
             compile:
                 options:
-                    appDir: "wire-app"
+                    appDir: "app"
                     baseUrl: "js"
-                    mainConfigFile: "wire-app/js/main.js"
+                    mainConfigFile: "app/js/main.js"
                     dir: "public"
 
                     optimize: "none"
@@ -79,7 +79,7 @@ module.exports = (grunt) ->
         # insert:
         #     options: {}
         #     main:
-        #         src: "wire-app//coffee/requireConfig.coffee",
+        #         src: "app//coffee/requireConfig.coffee",
         #         dest: "tests/coffee/SpecRunner.coffee",
         #         match: "# requirejs-config here"
 

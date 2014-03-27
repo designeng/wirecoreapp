@@ -1,6 +1,7 @@
 define [
     "appinstance"
-], (App) ->
+    "core/modules/root/rootModule"
+], (App, rootModule) ->
 
     App.addInitializer (options) ->
         console.log "App.addInitializer", options
@@ -9,11 +10,9 @@ define [
 
         App.addRegions application: options.regionSelector
 
-    App.start = (options) ->
-        console.log "START", options
+        rootModule.start options
 
     App.show = (view) ->
-        console.log ":::::::SHOW:::::::", view
         @regionSelector.show view
 
     return App
