@@ -30,6 +30,11 @@ require.config
             location: "../../bower_components/underscore"
         },
         {
+            name: "_.str"
+            main: "underscore.string"
+            location: "../../bower_components/underscore.string/lib"
+        },
+        {
             name: "marionette"
             main: "backbone.marionette"
             location: "../../bower_components/marionette/lib"
@@ -55,6 +60,9 @@ require.config
         # plugins
         "domReady": "../../bower_components/domReady/domReady"
 
+        # base
+        "baseLayoutObject": "core/base/baseLayoutObject"
+
         # bootstrap spec
         "bootstrapSpec": "core/bootstrapSpec"
 
@@ -68,9 +76,23 @@ require.config
         "withwire": "withwire/withwire"
         "oneComponent": "withwire/components/oneComponent"
 
-require [
-    "wire!bootstrapSpec"
-], (bootstrapSpec) ->
+        # controls
+        "tableControl": "controls/table/tableControl"
 
-    console.log "bootstrapSpec", bootstrapSpec
+require [
+    "backbone"
+    "wire"
+    "bootstrapSpec"
+    "wire!code_examples/rendering/renderingSpec"
+    "core/extended"
+], (Backbone, wire, bootstrapSpec, renderingContext) ->
+
+    wire(bootstrapSpec).then (mainContext) ->
+        console.log mainContext
+        app = mainContext.bootApp
+        appRegion = mainContext.appRegion
+
+        
+
+        appRegion.show renderingContext.tableControl
 

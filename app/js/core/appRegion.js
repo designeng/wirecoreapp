@@ -13,6 +13,14 @@ define(["marionette"], function(Marionette) {
 
     AppRegion.prototype.el = "#application";
 
+    AppRegion.prototype.initialize = function(opts) {
+      return console.log("INIT region", opts);
+    };
+
+    AppRegion.prototype.start = function() {
+      return console.log("STARTED", this.test);
+    };
+
     return AppRegion;
 
   })(Marionette.Region);
