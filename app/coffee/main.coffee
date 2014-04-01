@@ -69,13 +69,6 @@ require.config
         # mediator
         "mediator": "boot/mediator"
 
-        # contexts
-        "context/main" : "withwire/context/main"
-
-        # modules
-        "withwire": "withwire/withwire"
-        "oneComponent": "withwire/components/oneComponent"
-
         # controls
         "tableControl": "controls/table/tableControl"
 
@@ -91,7 +84,6 @@ require [
         console.log mainContext
         app = mainContext.bootApp
         appRegion = mainContext.appRegion
-
         
 
         appRegion.show renderingContext.tableControl

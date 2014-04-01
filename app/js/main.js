@@ -50,9 +50,6 @@ require.config({
     "baseLayoutObject": "core/base/baseLayoutObject",
     "bootstrapSpec": "core/bootstrapSpec",
     "mediator": "boot/mediator",
-    "context/main": "withwire/context/main",
-    "withwire": "withwire/withwire",
-    "oneComponent": "withwire/components/oneComponent",
     "tableControl": "controls/table/tableControl"
   }
 });
