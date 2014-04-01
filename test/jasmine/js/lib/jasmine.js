@@ -1,5 +1,3 @@
-console.log("PhantomJS: (teamcity_reporter.html) jasmine.js loaded");
-
 var isCommonJS = typeof window == "undefined" && typeof exports == "object";
 
 /**
@@ -797,12 +795,10 @@ jasmine.Env.prototype.nextSuiteId = function () {
  * @param {jasmine.Reporter} reporter An object which will receive status updates.
  */
 jasmine.Env.prototype.addReporter = function(reporter) {
-  console.log("PhantomJS: (teamcity_reporter.html) jasmine.js addReporter");
   this.reporter.addReporter(reporter);
 };
 
 jasmine.Env.prototype.execute = function() {
-  console.log("PhantomJS: (teamcity_reporter.html) jasmine.js execute");
   this.currentRunner_.execute();
 };
 

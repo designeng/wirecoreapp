@@ -12,7 +12,7 @@ module.exports = (grunt) ->
                 files: ['test/jasmine/coffee/**/**.coffee']
                 tasks: ["coffee-compile-jasmine"]
             js:
-                files: ['app/js/**/**.js']
+                files: ["app/js/**/**.js", "test/jasmine/js/**/**.js"]
                 options:
                     livereload: true
 

@@ -2,22 +2,6 @@
 
 define ["marionette", "handlebars", "handlebarsHelpers", "extended"], (Marionette, Handlebars) ->
 
-    # TODO: for usage with trace meld aspect
-    # class Reporter
-    #     constructor: ->
-    #         console.log "Reporter"
-
-    #     onCall: (info) ->
-    #         console.log "onCall", info
-
-    #     onReturn: (info) ->
-    #         console.log "onReturn", info
-
-    #     onThrow: (info) ->
-    #         console.log "onThrow", info
-
-    # reporter = new Reporter() unless reporter?
-
 
     beforeEach -> 
         loadFixtures("comboboxControlFixture.html")
